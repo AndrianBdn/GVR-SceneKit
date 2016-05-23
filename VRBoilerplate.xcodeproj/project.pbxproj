@@ -7,21 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B99218952002C7B262CE70A /* libPods-VRBoilerplate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B44388607F0E6A7429FE7AA /* libPods-VRBoilerplate.a */; };
 		E6D67C731CEDA76A00D9F9E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D67C721CEDA76A00D9F9E9 /* AppDelegate.swift */; };
 		E6D67C751CEDA76A00D9F9E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D67C741CEDA76A00D9F9E9 /* ViewController.swift */; };
-		E6D67C781CEDA76A00D9F9E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D67C761CEDA76A00D9F9E9 /* Main.storyboard */; };
 		E6D67C7A1CEDA76A00D9F9E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D67C791CEDA76A00D9F9E9 /* Assets.xcassets */; };
 		E6D67C7D1CEDA76A00D9F9E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D67C7B1CEDA76A00D9F9E9 /* LaunchScreen.storyboard */; };
+		E6D67C851CEDC6C900D9F9E9 /* SceneKitVRRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D67C841CEDC6C900D9F9E9 /* SceneKitVRRenderer.swift */; };
+		E6D67C881CEDC87E00D9F9E9 /* RenderLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D67C871CEDC87E00D9F9E9 /* RenderLoop.swift */; };
+		E6D67C8D1CEDFF8300D9F9E9 /* VRControllerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D67C8C1CEDFF8300D9F9E9 /* VRControllerSwift.swift */; };
+		E6D67C8F1CEE062B00D9F9E9 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D67C8E1CEE062B00D9F9E9 /* Helper.swift */; };
+		E6D67C931CEE145900D9F9E9 /* VRControllerObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D67C921CEE145900D9F9E9 /* VRControllerObjC.m */; };
+		E6D67C971CEEFC7000D9F9E9 /* interstellar-stars.png in Resources */ = {isa = PBXBuildFile; fileRef = E6D67C961CEEFC7000D9F9E9 /* interstellar-stars.png */; };
+		E6D67CF81CF0A59200D9F9E9 /* HeadTransformExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D67CF71CF0A59200D9F9E9 /* HeadTransformExtension.swift */; };
+		E6D67CFB1CF2E4E900D9F9E9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E6D67CFA1CF2E4E900D9F9E9 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		016D3AC424AF5CD038D5B001 /* Pods-VRBoilerplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRBoilerplate.release.xcconfig"; path = "Pods/Target Support Files/Pods-VRBoilerplate/Pods-VRBoilerplate.release.xcconfig"; sourceTree = "<group>"; };
+		760A4B47E60361A6E05DBC73 /* Pods-VRBoilerplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRBoilerplate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VRBoilerplate/Pods-VRBoilerplate.debug.xcconfig"; sourceTree = "<group>"; };
+		7B44388607F0E6A7429FE7AA /* libPods-VRBoilerplate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VRBoilerplate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D67C6F1CEDA76A00D9F9E9 /* VRBoilerplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VRBoilerplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E6D67C721CEDA76A00D9F9E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E6D67C721CEDA76A00D9F9E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E6D67C741CEDA76A00D9F9E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E6D67C771CEDA76A00D9F9E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E6D67C791CEDA76A00D9F9E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6D67C7C1CEDA76A00D9F9E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6D67C7E1CEDA76A00D9F9E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6D67C841CEDC6C900D9F9E9 /* SceneKitVRRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SceneKitVRRenderer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E6D67C861CEDC76D00D9F9E9 /* VRBoilerplate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "VRBoilerplate-Bridging-Header.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		E6D67C871CEDC87E00D9F9E9 /* RenderLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderLoop.swift; sourceTree = "<group>"; };
+		E6D67C8C1CEDFF8300D9F9E9 /* VRControllerSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = VRControllerSwift.swift; path = VRBoilerplate/VRControllerSwift.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E6D67C8E1CEE062B00D9F9E9 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Helper.swift; path = VRBoilerplate/Helper.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E6D67C911CEE145900D9F9E9 /* VRControllerObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = VRControllerObjC.h; path = VRBoilerplate/VRControllerObjC.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		E6D67C921CEE145900D9F9E9 /* VRControllerObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = VRControllerObjC.m; path = VRBoilerplate/VRControllerObjC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		E6D67C941CEE14B900D9F9E9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E6D67C961CEEFC7000D9F9E9 /* interstellar-stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "interstellar-stars.png"; path = "Resources/interstellar-stars.png"; sourceTree = "<group>"; };
+		E6D67C981CEF029200D9F9E9 /* VRControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VRControllerProtocol.h; path = VRBoilerplate/VRControllerProtocol.h; sourceTree = "<group>"; };
+		E6D67CF71CF0A59200D9F9E9 /* HeadTransformExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeadTransformExtension.swift; path = VRBoilerplate/HeadTransformExtension.swift; sourceTree = "<group>"; };
+		E6D67CFA1CF2E4E900D9F9E9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +51,43 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B99218952002C7B262CE70A /* libPods-VRBoilerplate.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1358820BEBBC7FE8F6982A4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B44388607F0E6A7429FE7AA /* libPods-VRBoilerplate.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C92CB60442A62DCE6F24A5F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				760A4B47E60361A6E05DBC73 /* Pods-VRBoilerplate.debug.xcconfig */,
+				016D3AC424AF5CD038D5B001 /* Pods-VRBoilerplate.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E6D67C661CEDA76A00D9F9E9 = {
 			isa = PBXGroup;
 			children = (
+				E6D67CFA1CF2E4E900D9F9E9 /* LICENSE */,
+				E6D67C941CEE14B900D9F9E9 /* README.md */,
+				E6D67C961CEEFC7000D9F9E9 /* interstellar-stars.png */,
+				E6D67C901CEE13F600D9F9E9 /* API */,
+				E6D67CF91CF2452600D9F9E9 /* Helpers */,
+				E6D67C8B1CEDFF7400D9F9E9 /* Examples */,
 				E6D67C711CEDA76A00D9F9E9 /* VRBoilerplate */,
 				E6D67C701CEDA76A00D9F9E9 /* Products */,
+				C92CB60442A62DCE6F24A5F9 /* Pods */,
+				1358820BEBBC7FE8F6982A4A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +102,43 @@
 		E6D67C711CEDA76A00D9F9E9 /* VRBoilerplate */ = {
 			isa = PBXGroup;
 			children = (
+				E6D67C861CEDC76D00D9F9E9 /* VRBoilerplate-Bridging-Header.h */,
 				E6D67C721CEDA76A00D9F9E9 /* AppDelegate.swift */,
 				E6D67C741CEDA76A00D9F9E9 /* ViewController.swift */,
-				E6D67C761CEDA76A00D9F9E9 /* Main.storyboard */,
+				E6D67C871CEDC87E00D9F9E9 /* RenderLoop.swift */,
+				E6D67C841CEDC6C900D9F9E9 /* SceneKitVRRenderer.swift */,
 				E6D67C791CEDA76A00D9F9E9 /* Assets.xcassets */,
 				E6D67C7B1CEDA76A00D9F9E9 /* LaunchScreen.storyboard */,
 				E6D67C7E1CEDA76A00D9F9E9 /* Info.plist */,
 			);
 			path = VRBoilerplate;
+			sourceTree = "<group>";
+		};
+		E6D67C8B1CEDFF7400D9F9E9 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				E6D67C8C1CEDFF8300D9F9E9 /* VRControllerSwift.swift */,
+				E6D67C911CEE145900D9F9E9 /* VRControllerObjC.h */,
+				E6D67C921CEE145900D9F9E9 /* VRControllerObjC.m */,
+			);
+			name = Examples;
+			sourceTree = "<group>";
+		};
+		E6D67C901CEE13F600D9F9E9 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E6D67C981CEF029200D9F9E9 /* VRControllerProtocol.h */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		E6D67CF91CF2452600D9F9E9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E6D67CF71CF0A59200D9F9E9 /* HeadTransformExtension.swift */,
+				E6D67C8E1CEE062B00D9F9E9 /* Helper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +148,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6D67C811CEDA76A00D9F9E9 /* Build configuration list for PBXNativeTarget "VRBoilerplate" */;
 			buildPhases = (
+				7DD142A9B15697709556CBED /* 📦 Check Pods Manifest.lock */,
 				E6D67C6B1CEDA76A00D9F9E9 /* Sources */,
 				E6D67C6C1CEDA76A00D9F9E9 /* Frameworks */,
 				E6D67C6D1CEDA76A00D9F9E9 /* Resources */,
+				368C24CBA48A47D126ACEBD8 /* 📦 Embed Pods Frameworks */,
+				95C58F8F614C4095041D9D1F /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,18 +203,73 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6D67C7D1CEDA76A00D9F9E9 /* LaunchScreen.storyboard in Resources */,
+				E6D67C971CEEFC7000D9F9E9 /* interstellar-stars.png in Resources */,
+				E6D67CFB1CF2E4E900D9F9E9 /* LICENSE in Resources */,
 				E6D67C7A1CEDA76A00D9F9E9 /* Assets.xcassets in Resources */,
-				E6D67C781CEDA76A00D9F9E9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		368C24CBA48A47D126ACEBD8 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VRBoilerplate/Pods-VRBoilerplate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DD142A9B15697709556CBED /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		95C58F8F614C4095041D9D1F /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VRBoilerplate/Pods-VRBoilerplate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E6D67C6B1CEDA76A00D9F9E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6D67C851CEDC6C900D9F9E9 /* SceneKitVRRenderer.swift in Sources */,
+				E6D67C8D1CEDFF8300D9F9E9 /* VRControllerSwift.swift in Sources */,
+				E6D67CF81CF0A59200D9F9E9 /* HeadTransformExtension.swift in Sources */,
+				E6D67C8F1CEE062B00D9F9E9 /* Helper.swift in Sources */,
+				E6D67C931CEE145900D9F9E9 /* VRControllerObjC.m in Sources */,
+				E6D67C881CEDC87E00D9F9E9 /* RenderLoop.swift in Sources */,
 				E6D67C751CEDA76A00D9F9E9 /* ViewController.swift in Sources */,
 				E6D67C731CEDA76A00D9F9E9 /* AppDelegate.swift in Sources */,
 			);
@@ -143,14 +278,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E6D67C761CEDA76A00D9F9E9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E6D67C771CEDA76A00D9F9E9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E6D67C7B1CEDA76A00D9F9E9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -247,23 +374,31 @@
 		};
 		E6D67C821CEDA76A00D9F9E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 760A4B47E60361A6E05DBC73 /* Pods-VRBoilerplate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = VRBoilerplate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ua.aab.VRBoilerplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VRBoilerplate/VRBoilerplate-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		E6D67C831CEDA76A00D9F9E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 016D3AC424AF5CD038D5B001 /* Pods-VRBoilerplate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = VRBoilerplate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ua.aab.VRBoilerplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VRBoilerplate/VRBoilerplate-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -286,6 +421,7 @@
 				E6D67C831CEDA76A00D9F9E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
