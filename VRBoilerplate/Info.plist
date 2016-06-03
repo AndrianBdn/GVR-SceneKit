@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>VRControllerClass</key>
-	<string>VRControllerObjC</string>
+	<string>VRControllerSwift</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

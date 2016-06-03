@@ -107,7 +107,7 @@
     counter++; // no more ++ in Swift soon :(
     
     hud.geometry.materials.firstObject.diffuse.contents =
-    [[self class] textureWithString:[NSString stringWithFormat:@"%ld", counter]];
+    [[self class] textureWithString:[NSString stringWithFormat:@"%ld", (unsigned long)counter]];
 }
 
 

@@ -33,48 +33,52 @@ class VRControllerSwift : NSObject, VRControllerProtocol {
     
     required override init() {
         
-        // sometimes skybox has rendering glitches on simulator
-        scene.background.contents = UIColor.lightGrayColor();
+        scene.background.contents = UIColor.lightGrayColor()
         
         for i in -3 ..< 13 {
             for j in 7 ..< 12 {
                 let boxNode: SCNNode = SCNNode(geometry: SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0))
-                boxNode.geometry?.materials = [greyMaterial];
-                boxNode.position = SCNVector3((Double(i) - 5.0) * 1.2, (Double(j) - 5.0) * 1.2, -10);
-                boxNode.physicsBody = SCNPhysicsBody.staticBody();
-                boxes.addChildNode(boxNode);
+                boxNode.geometry?.materials = [greyMaterial]
+                boxNode.position = SCNVector3((Double(i) - 5.0) * 1.2, (Double(j) - 5.0) * 1.2, -10)
+                boxNode.physicsBody = SCNPhysicsBody.staticBody()
+                boxes.addChildNode(boxNode)
             }
         }
         
-        world.addChildNode(boxes);
+        world.addChildNode(boxes)
         
         
-        let floor = SCNFloor();
+        let floor = SCNFloor()
         floor.reflectivity = 0; // does not work in Cardboard SDK
-        
-        
-        let floorNode = SCNNode();
-        floorNode.geometry = floor;
+        let floorNode = SCNNode.init(geometry: floor)
         floorNode.position = SCNVector3(0, -20, 0);
         world.addChildNode(floorNode);
         
         
-        let light = SCNLight();
-        let lightNode = SCNNode();
-        lightNode.light = light;
-        lightNode.position = SCNVector3(2,2,2);
-        world.addChildNode(lightNode);
+        let backSphere = SCNNode.init(geometry: SCNSphere.init(radius: 120))
+        backSphere.position = SCNVector3(0, 0, 180)
+        world.addChildNode(backSphere)
         
-        cursor.geometry = SCNSphere(radius: 0.2);
-        cursor.physicsBody = nil;
         
-        scene.rootNode.addChildNode(cursor);
-        scene.rootNode.addChildNode(world);
+        let light = SCNLight()
+        let lightNode = SCNNode()
+        lightNode.light = light
+        lightNode.position = SCNVector3(2,2,2)
+        world.addChildNode(lightNode)
+        
+        cursor.geometry = SCNSphere(radius: 0.2)
+        cursor.physicsBody = nil
+        
+        scene.rootNode.addChildNode(cursor)
+        scene.rootNode.addChildNode(world)
     }
     
     func prepareFrameWithHeadTransform(headTransform: GVRHeadTransform) {
         
         cursor.position = headTransform.rotateVector(SCNVector3(0, -3, -9));
+        
+        // let's create long ray (100 meters) that goes the same way 
+        // cursor.position is directed 
         
         let p2 =
             SCNVector3FromGLKVector3(
@@ -95,9 +99,9 @@ class VRControllerSwift : NSObject, VRControllerProtocol {
             focusedNode = nil;
         }
         
-        boxes.enumerateChildNodesUsingBlock({ (node, end) in
+        boxes.enumerateChildNodesUsingBlock { (node, end) in
             node.geometry?.materials = [self.greyMaterial];
-        });
+        };
         
         focusedNode?.geometry?.materials = [purpleMaterial];
     }

@@ -26,6 +26,7 @@ class SceneKitVRRenderer: NSObject, GVRCardboardViewDelegate {
         camNode.camera = SCNCamera();
         renderer.pointOfView = camNode;        
         renderer.scene = scene;
+        // comment this out if you would like custom lighting 
         renderer.autoenablesDefaultLighting = true;
         return renderer;
     }
@@ -75,7 +76,7 @@ class SceneKitVRRenderer: NSObject, GVRCardboardViewDelegate {
         eyeRenderer.pointOfView?.camera?.setProjectionTransform(SCNMatrix4FromGLKMatrix4(projection_matrix));
         eyeRenderer.pointOfView?.transform = SCNMatrix4FromGLKMatrix4(GLKMatrix4Transpose(model_view_matrix));
         
-        if (glGetError() == GLenum(GL_NO_ERROR)) {
+        if glGetError() == GLenum(GL_NO_ERROR) {
             eyeRenderer.renderAtTime(0);
         }
         

@@ -34,6 +34,9 @@ class ViewController: UIViewController, GVRCardboardViewDelegate {
         cardboardView.delegate = self;
         cardboardView.autoresizingMask =  [.FlexibleWidth, .FlexibleHeight];
         
+        // VR mode is disabled in simulator by default 
+        // double click to enable 
+        
         #if (arch(i386) || arch(x86_64)) && os(iOS)
             cardboardView.vrModeEnabled = false;
         #else
@@ -97,7 +100,7 @@ class ViewController: UIViewController, GVRCardboardViewDelegate {
     
     func cardboardView(cardboardView: GVRCardboardView!, didFireEvent event: GVRUserEvent) {
 
-        if (event == GVRUserEvent.Trigger) {
+        if event == GVRUserEvent.Trigger {
             vrController!.eventTriggered();
         }
     }

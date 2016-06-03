@@ -11,12 +11,11 @@ import Foundation
 
 extension GVRHeadTransform {
     
-    func rotateVector(position : SCNVector3) -> SCNVector3 {
-        
-        let rotationMatrix = GLKMatrix4Transpose(self.headPoseInStartSpace());
-        return SCNVector3FromGLKVector3(GLKMatrix4MultiplyVector3(rotationMatrix, SCNVector3ToGLKVector3(position)));
-        
-    }
+    
+    
+    // функция возвращает такую матрицу трансформации, которая при любом повороте головы, будет показывать объект так
+    // как его видит зритель вначале (когда смотрит в направлении 0, 0, -1 )
+    // подходит для спрайтов и курсоров 
     
     func rotateMatrixForPosition(position : SCNVector3) -> SCNMatrix4 {
         let rotationMatrix = GLKMatrix4Transpose(self.headPoseInStartSpace());
@@ -24,5 +23,14 @@ extension GVRHeadTransform {
         
         return SCNMatrix4FromGLKMatrix4(GLKMatrix4Multiply(rotationMatrix, translationMatrix));
     }
+    
+    
+    // как функция выше, только сам объект не вращается (только координаты)
+    // подходит если курсор круглый :-)
+    func rotateVector(position : SCNVector3) -> SCNVector3 {
+        let rotationMatrix = GLKMatrix4Transpose(self.headPoseInStartSpace());
+        return SCNVector3FromGLKVector3(GLKMatrix4MultiplyVector3(rotationMatrix, SCNVector3ToGLKVector3(position)));
+    }
+
     
 }

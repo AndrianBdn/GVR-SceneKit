@@ -8,28 +8,10 @@
 
 import UIKit
 
-class RenderLoopThreadTarget : NSObject {
-    
-    let displayLink: CADisplayLink;
-    
-    init(displayLink: CADisplayLink) {
-        self.displayLink = displayLink;
-        super.init();
-    }
-    
- 
-    func threadMain() {
-        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
-        CFRunLoopRun();
-    }
-    
-}
-
 
 class RenderLoop: NSObject {
     
     let displayLink: CADisplayLink;
-    let renderThread : NSThread;
     
     var paused = false {
         didSet {
@@ -40,12 +22,8 @@ class RenderLoop: NSObject {
 
     init(renderTarget:AnyObject,  selector: Selector) {
         displayLink = CADisplayLink.init(target: renderTarget, selector: selector);
-        
-        renderThread = NSThread.init(target: RenderLoopThreadTarget.init(displayLink: displayLink),
-                                     selector: #selector(RenderLoopThreadTarget.threadMain),
-                                     object: nil);
+        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
 
-        renderThread.start();
         super.init();
         
         NSNotificationCenter.defaultCenter().addObserver(self,
@@ -64,34 +42,17 @@ class RenderLoop: NSObject {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    func pauseDisplayLink() {
-        displayLink.paused = true;
-    }
-    
     func applicationWillResignActive(notification : NSNotification) {
-        self.performSelector(#selector(pauseDisplayLink),
-                             onThread: renderThread,
-                             withObject: nil,
-                             waitUntilDone: true);
+        displayLink.paused = true;
     }
     
 
     func applicationDidBecomeActive(notification : NSNotification) {
-        displayLink.paused = false;
+        displayLink.paused = paused;
     }
     
     func invalidate() {
-        self.performSelector(#selector(invalidateRenderThread),
-                             onThread: renderThread,
-                             withObject: nil,
-                             waitUntilDone: false);
-    }
-    
-    func invalidateRenderThread() {
         displayLink.invalidate();
-        dispatch_async(dispatch_get_main_queue()) {
-            self.renderThread.cancel();
-        }
     }
 
 }
