@@ -28,16 +28,10 @@
         return self;
     
     scene = [SCNScene scene];
-    
-#if defined(TARGET_OS_SIMULATOR) 
     scene.background.contents = [UIColor lightGrayColor];
-#else
-    scene.background.contents = [UIImage imageNamed:@"interstellar-stars.png"];
-#endif
 
     SCNNode *world = [SCNNode node];
     
-
     
     {
         float theta = M_PI_4;

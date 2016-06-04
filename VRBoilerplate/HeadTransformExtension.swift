@@ -12,10 +12,11 @@ import Foundation
 extension GVRHeadTransform {
     
     
+    // this function return a matrix for SCNNode, that will 
+    // keep the object the way viewer seen it initially (when looking to 0,0,-1) 
+    // when he is actually looking elsewhere 
     
-    // функция возвращает такую матрицу трансформации, которая при любом повороте головы, будет показывать объект так
-    // как его видит зритель вначале (когда смотрит в направлении 0, 0, -1 )
-    // подходит для спрайтов и курсоров 
+    // good for VR cursors and sprites
     
     func rotateMatrixForPosition(position : SCNVector3) -> SCNMatrix4 {
         let rotationMatrix = GLKMatrix4Transpose(self.headPoseInStartSpace());
@@ -24,9 +25,10 @@ extension GVRHeadTransform {
         return SCNMatrix4FromGLKMatrix4(GLKMatrix4Multiply(rotationMatrix, translationMatrix));
     }
     
+
+    // the same as above, bot just rotates the position 
+    // works good for sphers
     
-    // как функция выше, только сам объект не вращается (только координаты)
-    // подходит если курсор круглый :-)
     func rotateVector(position : SCNVector3) -> SCNVector3 {
         let rotationMatrix = GLKMatrix4Transpose(self.headPoseInStartSpace());
         return SCNVector3FromGLKVector3(GLKMatrix4MultiplyVector3(rotationMatrix, SCNVector3ToGLKVector3(position)));

@@ -1,74 +1,27 @@
-# iOS VR Boilerplate 
-
-Это готовый проект позволяющий быстро начать использовать Apple SceneKit и Google VR SDK, для того чтобы создавать интерактивные виртуальные приложения для iOS.   
-
-## CocoaPods 
-
-Проект использует CocoaPods. В этом zip файле необходимая зависимость уже установлена. Для работы с проектом необходимо открыть **VRBoilerplate.xcworkspace**
-
-## SceneKit 
-
-SceneKit — это высокоуровневый фреймворк для 3D графики то Apple.
-
-Он похож на UIKit, только вместо UIView в качестве основного блока используется SCNNode. 
-
-```swift
-// создаем пустую сцену
-scene = [SCNScene scene];
-
-// создаем Node, в ней будет лежать параллипипед 1x1x1 (куб) со скругленными углами
-SCNNode *boxNode = [SCNNode nodeWithGeometry:[SCNBox boxWithWidth:1 height:1 length:1 chamferRadius:0.2]];
-
-// перемещаем его
-boxNode.position = SCNVector3Make(0, 0, -3);
-
-// и поворачиваем
-boxNode.eulerAngles = SCNVector3Make(M_PI_4, M_PI_4, 0);
-
-// создаем материал
-SCNMaterial *m = [SCNMaterial material];
-
-// с нужными нам цветом
-m.diffuse.contents = [UIColor cyanColor];
-
-// устанавливаем созданный метариал для нашей Node
-boxNode.geometry.materials = @[m];
-
-// добавляем в сцену
-[scene.rootNode addChildNode:boxNode];
-
-// чтобы удалить node из сцены, можно вызвать [boxNode removeFromParentNode];
-```
-
-Как и с UIKit можно сохранить указатель на Node и потом его менять, чтобы реализовать интерактивное поведение. Так же сцены можно создавать используя редактор сцен в Xcode — это 3D аналог интерфейс-билдера. Нужный node можно потом найти по имени.   
-
-В обычной жизни создается SCNView (которая является UIView) и устанавливается свойство scene для нее. 
-
-Данный проект использует пассивную модель — сцену нужно создать в классе соответствующем VRControllerProtocol.  
 
 
-## VRControllerProtocol 
 
-Рассмотрим VRControllerProtocol. Не считая конструктора init он определяет 3 простых метода.
+# GVR-SceneKit
 
-### - scene 
+This is an example of using Apple SceneKit with [iOS Google Virtual Reality SDK](https://github.com/googlevr/gvr-ios-sdk) for using with [Google Cardboard](https://vr.google.com/cardboard/).
 
-Read-only свойство, которое возвращает SCNScene. Не может вернуть null, сам экземпляр сцены не должен меняться в течении жизни объекта.
+Currently (early June 2016) it is the easiest way to develop VR app on iPhone. Hope this is going to change after WWDC 2016.
 
-### - prepareFrameWithHeadTransform:
-
-Вызывается перед каждым кадром (один раз на оба глаза). В параметре передается поворот головы от Google VR SDK. 
-
-### - eventTriggered
-
-Вызывается при "щелчке" магнитиком на Cardboard или одиночном клике на окне симулятора. 
+The project codename is ’VRBoilerplate’ and initially it was prepared for iOS programming competition for [uadevchallenge 2016](http://uawebchallenge.com/). It supports  both Objective-C and Swift.
 
 
-### Указание класса  
+## Installing 
 
-Специальный ключ `VRControllerClass` в файле Info.plist указывает имя класса объекта, который будет создан при старте приложения. 
+Install CocoaPods, open VRBoilerplate.xcworkspace, start coding. 
 
-При использовании Swift, необходимо указать objc имя класса: 
+
+## Usage 
+
+To create and manage scene, you need to implement a class based on VRControllerProtocol.
+
+Than specify that class in Info.plist under VRControllerClass key. 
+
+If you’re using Swift, you need to specify Obj-C runtime class name
 
 ```swift 
 @objc(VRControllerSwift)
@@ -77,47 +30,37 @@ class VRControllerSwift : NSObject, VRControllerProtocol {
 ```
 
 
-## Особенности  
+## VRControllerProtocol 
 
-- Зритель находится в точке (0, 0, 0) и смотрит по сторонам.  Код не рассчитывает на наличие SCNCamera в сцене или их перемещение. При старте зритель смотрит в направлении 0, 0, -1. То направлении в котором вы держали Cardboard в реальном мире на старте приложения и станет 0,0,-1 в VR. 
+Very simple protocol that contains init-constructor and three methods. 
 
-- Интеграция GVR и SceneKit порождает некоторое количество проблем, например 
+### - scene 
 
-    - отражающий(.reflectivity > 0) пол (SCNFloor) не работает 
-    
-    - не удается использовать SpriteKit сцены в качестве материалов 
+Read-only property that should return SCNScene. Can’t be null, the scene should not be changed during VRController object lifetime. 
 
-    - Performance, performance, performance: VR режим в целом более требователен к производительности. В некоторых случаях, симулятор может работать медленней реального устройства
+### - prepareFrameWithHeadTransform:
 
-    - два warnings при компиляции: … direct access in gvr::Singleton gvr::ServerLogger ::GetInstance() to global weak symbol — заведен [issue](https://github.com/googlevr/gvr-ios-sdk/issues/22) в проекте GVR
+The method is called before each frame (one time for both eyes). Argument is head rotation from GVR SDK. 
 
-- В SceneKitVRRenderer есть следующие особенности (которые можно изменить) 
+You can use prepareFrameWithHeadTransform: as a game loop body.
 
-    - scene.renderAtTime(0) всегда вызывается с 0. В этом аргументе передается время сцены, которое по умолчанию выключено. Обычно сцены используют системное время, поэтому это не имеет значения. 
+### - eventTriggered
 
-    - включен autoenablesDefaultLighting у Renderer 
+This method is called when magnet on Cardboard is ‘clicked’ (or if there there are tap on Simulator window) 
 
 
-## Ресурсы
 
-### SkyBox (intersteallar-stars.png)
+## Implementation Details 
 
-Interstellar 
-http://opengameart.org/content/interstellar-skybox
-By Jockum Skoglund aka hipshot
-hipshot@zfight.com
-www.zfight.com
-Stockholm, 2005 08 25
+- Viewer is at the point (0, 0, 0) looking around. The project does not takes into account SCNCamera objects in Scene. After app start the viewer is looking at the direction (0, 0, -1). The direction which viewer is holding Cardboard in the real word is going to be (0, 0, -1) in VR. 
 
+- There are number of problems with integration of GVR and SceneKit. Since GVR is closed source, they are more like ‘known issues’ like now. 
 
-### Space Invader Model 
+	- reflectivity (.reflectivity > 0) does not work for SCNFloor 
+	
+	- SpriteKit scenes are not working as a materials 
+	
+	- There are two warning during build: … direct access in gvr::Singleton gvr::ServerLogger ::GetInstance() to global weak symbol — see [issue](https://github.com/googlevr/gvr-ios-sdk/issues/22) in GVR project. 
 
-Submitted by:
-nicola3dmodels
-Non-commercial use License
-
-http://tf3dm.com/3d-model/space-invader-26504.html
-http://tf3dm.com/3d-model/space-invader-42443.html
-http://tf3dm.com/3d-model/space-invader-84114.html
-
+- Scene time is always 0, however SceneKit is not using scene time by default.  It is possible to change this in SceneKitVRRenderer.
 

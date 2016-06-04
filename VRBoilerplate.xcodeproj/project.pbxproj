@@ -15,9 +15,7 @@
 		E6D67C851CEDC6C900D9F9E9 /* SceneKitVRRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D67C841CEDC6C900D9F9E9 /* SceneKitVRRenderer.swift */; };
 		E6D67C881CEDC87E00D9F9E9 /* RenderLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D67C871CEDC87E00D9F9E9 /* RenderLoop.swift */; };
 		E6D67C8D1CEDFF8300D9F9E9 /* VRControllerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D67C8C1CEDFF8300D9F9E9 /* VRControllerSwift.swift */; };
-		E6D67C8F1CEE062B00D9F9E9 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D67C8E1CEE062B00D9F9E9 /* Helper.swift */; };
 		E6D67C931CEE145900D9F9E9 /* VRControllerObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D67C921CEE145900D9F9E9 /* VRControllerObjC.m */; };
-		E6D67C971CEEFC7000D9F9E9 /* interstellar-stars.png in Resources */ = {isa = PBXBuildFile; fileRef = E6D67C961CEEFC7000D9F9E9 /* interstellar-stars.png */; };
 		E6D67CF81CF0A59200D9F9E9 /* HeadTransformExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D67CF71CF0A59200D9F9E9 /* HeadTransformExtension.swift */; };
 		E6D67CFB1CF2E4E900D9F9E9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E6D67CFA1CF2E4E900D9F9E9 /* LICENSE */; };
 /* End PBXBuildFile section */
@@ -36,11 +34,9 @@
 		E6D67C861CEDC76D00D9F9E9 /* VRBoilerplate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "VRBoilerplate-Bridging-Header.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		E6D67C871CEDC87E00D9F9E9 /* RenderLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderLoop.swift; sourceTree = "<group>"; };
 		E6D67C8C1CEDFF8300D9F9E9 /* VRControllerSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = VRControllerSwift.swift; path = VRBoilerplate/VRControllerSwift.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		E6D67C8E1CEE062B00D9F9E9 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Helper.swift; path = VRBoilerplate/Helper.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E6D67C911CEE145900D9F9E9 /* VRControllerObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = VRControllerObjC.h; path = VRBoilerplate/VRControllerObjC.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		E6D67C921CEE145900D9F9E9 /* VRControllerObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = VRControllerObjC.m; path = VRBoilerplate/VRControllerObjC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E6D67C941CEE14B900D9F9E9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		E6D67C961CEEFC7000D9F9E9 /* interstellar-stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "interstellar-stars.png"; path = "Resources/interstellar-stars.png"; sourceTree = "<group>"; };
 		E6D67C981CEF029200D9F9E9 /* VRControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VRControllerProtocol.h; path = VRBoilerplate/VRControllerProtocol.h; sourceTree = "<group>"; };
 		E6D67CF71CF0A59200D9F9E9 /* HeadTransformExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeadTransformExtension.swift; path = VRBoilerplate/HeadTransformExtension.swift; sourceTree = "<group>"; };
 		E6D67CFA1CF2E4E900D9F9E9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -80,7 +76,6 @@
 			children = (
 				E6D67CFA1CF2E4E900D9F9E9 /* LICENSE */,
 				E6D67C941CEE14B900D9F9E9 /* README.md */,
-				E6D67C961CEEFC7000D9F9E9 /* interstellar-stars.png */,
 				E6D67C901CEE13F600D9F9E9 /* API */,
 				E6D67CF91CF2452600D9F9E9 /* Helpers */,
 				E6D67C8B1CEDFF7400D9F9E9 /* Examples */,
@@ -136,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				E6D67CF71CF0A59200D9F9E9 /* HeadTransformExtension.swift */,
-				E6D67C8E1CEE062B00D9F9E9 /* Helper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -203,7 +197,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6D67C7D1CEDA76A00D9F9E9 /* LaunchScreen.storyboard in Resources */,
-				E6D67C971CEEFC7000D9F9E9 /* interstellar-stars.png in Resources */,
 				E6D67CFB1CF2E4E900D9F9E9 /* LICENSE in Resources */,
 				E6D67C7A1CEDA76A00D9F9E9 /* Assets.xcassets in Resources */,
 			);
@@ -267,7 +260,6 @@
 				E6D67C851CEDC6C900D9F9E9 /* SceneKitVRRenderer.swift in Sources */,
 				E6D67C8D1CEDFF8300D9F9E9 /* VRControllerSwift.swift in Sources */,
 				E6D67CF81CF0A59200D9F9E9 /* HeadTransformExtension.swift in Sources */,
-				E6D67C8F1CEE062B00D9F9E9 /* Helper.swift in Sources */,
 				E6D67C931CEE145900D9F9E9 /* VRControllerObjC.m in Sources */,
 				E6D67C881CEDC87E00D9F9E9 /* RenderLoop.swift in Sources */,
 				E6D67C751CEDA76A00D9F9E9 /* ViewController.swift in Sources */,
