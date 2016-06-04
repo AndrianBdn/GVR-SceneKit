@@ -89,7 +89,7 @@ class VRControllerSwift : NSObject, VRControllerProtocol {
 
     - Performance, performance, performance: VR режим в целом более требователен к производительности. В некоторых случаях, симулятор может работать медленней реального устройства
 
-    - два warnings при компиляции: … direct access in gvr::Singleton<gvr::ServerLogger>::GetInstance() to global weak symbol — заведен [issue](https://github.com/googlevr/gvr-ios-sdk/issues/22) в проекте GVR
+    - два warnings при компиляции: … direct access in gvr::Singleton gvr::ServerLogger ::GetInstance() to global weak symbol — заведен [issue](https://github.com/googlevr/gvr-ios-sdk/issues/22) в проекте GVR
 
 - В SceneKitVRRenderer есть следующие особенности (которые можно изменить) 
 
