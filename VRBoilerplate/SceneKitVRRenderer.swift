@@ -70,7 +70,7 @@ class SceneKitVRRenderer: NSObject, GVRCardboardViewDelegate {
         let model_view_matrix = GLKMatrix4Multiply(headTransform.eyeFromHeadMatrix(eye), headTransform.headPoseInStartSpace())
 
         guard let eyeRenderer = renderer[eye.rawValue] else {
-            assert(false, "no eye renderer for eye");
+            fatalError("no eye renderer for eye")
         }
         
         eyeRenderer.pointOfView?.camera?.setProjectionTransform(SCNMatrix4FromGLKMatrix4(projection_matrix));
