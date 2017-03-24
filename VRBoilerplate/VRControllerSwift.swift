@@ -20,12 +20,12 @@ class VRControllerSwift : NSObject, VRControllerProtocol {
     
     var focusedNode : SCNNode?
     
-    let greyMaterial = VRControllerSwift.material(color: .grayColor())
-    let purpleMaterial = VRControllerSwift.material(color: .purpleColor())
+    let greyMaterial = VRControllerSwift.material(color: .gray)
+    let purpleMaterial = VRControllerSwift.material(color: .purple)
     
     // MARK: Game Controller
     
-    static func material(color color : UIColor) -> SCNMaterial {
+    static func material(color : UIColor) -> SCNMaterial {
         let m = SCNMaterial();
         m.diffuse.contents = color;
         return m;
@@ -33,14 +33,14 @@ class VRControllerSwift : NSObject, VRControllerProtocol {
     
     required override init() {
         
-        scene.background.contents = UIColor.lightGrayColor()
+        scene.background.contents = UIColor.lightGray
         
         for i in -3 ..< 13 {
             for j in 7 ..< 12 {
                 let boxNode: SCNNode = SCNNode(geometry: SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0))
                 boxNode.geometry?.materials = [greyMaterial]
                 boxNode.position = SCNVector3((Double(i) - 5.0) * 1.2, (Double(j) - 5.0) * 1.2, -10)
-                boxNode.physicsBody = SCNPhysicsBody.staticBody()
+                boxNode.physicsBody = SCNPhysicsBody.static()
                 boxes.addChildNode(boxNode)
             }
         }
@@ -73,7 +73,7 @@ class VRControllerSwift : NSObject, VRControllerProtocol {
         scene.rootNode.addChildNode(world)
     }
     
-    func prepareFrameWithHeadTransform(headTransform: GVRHeadTransform) {
+    func prepareFrame(with headTransform: GVRHeadTransform) {
         
         cursor.position = headTransform.rotateVector(SCNVector3(0, -3, -9));
         
@@ -90,7 +90,7 @@ class VRControllerSwift : NSObject, VRControllerProtocol {
                 )
             );
         
-        let hits = boxes.hitTestWithSegmentFromPoint(SCNVector3Zero, toPoint: p2, options: [SCNHitTestFirstFoundOnlyKey: true]);
+        let hits = boxes.hitTestWithSegment(from: SCNVector3Zero, to: p2, options: [SCNHitTestOption.firstFoundOnly.rawValue: true]);
         
         if let hit = hits.first {
             focusedNode = hit.node;
@@ -99,7 +99,7 @@ class VRControllerSwift : NSObject, VRControllerProtocol {
             focusedNode = nil;
         }
         
-        boxes.enumerateChildNodesUsingBlock { (node, end) in
+        boxes.enumerateChildNodes { (node, end) in
             node.geometry?.materials = [self.greyMaterial];
         };
         

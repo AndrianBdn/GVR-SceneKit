@@ -142,12 +142,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6D67C811CEDA76A00D9F9E9 /* Build configuration list for PBXNativeTarget "VRBoilerplate" */;
 			buildPhases = (
-				7DD142A9B15697709556CBED /* 📦 Check Pods Manifest.lock */,
+				7DD142A9B15697709556CBED /* [CP] Check Pods Manifest.lock */,
 				E6D67C6B1CEDA76A00D9F9E9 /* Sources */,
 				E6D67C6C1CEDA76A00D9F9E9 /* Frameworks */,
 				E6D67C6D1CEDA76A00D9F9E9 /* Resources */,
-				368C24CBA48A47D126ACEBD8 /* 📦 Embed Pods Frameworks */,
-				95C58F8F614C4095041D9D1F /* 📦 Copy Pods Resources */,
+				368C24CBA48A47D126ACEBD8 /* [CP] Embed Pods Frameworks */,
+				95C58F8F614C4095041D9D1F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,6 +170,7 @@
 				TargetAttributes = {
 					E6D67C6E1CEDA76A00D9F9E9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -205,14 +206,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		368C24CBA48A47D126ACEBD8 /* 📦 Embed Pods Frameworks */ = {
+		368C24CBA48A47D126ACEBD8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,29 +221,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VRBoilerplate/Pods-VRBoilerplate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7DD142A9B15697709556CBED /* 📦 Check Pods Manifest.lock */ = {
+		7DD142A9B15697709556CBED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		95C58F8F614C4095041D9D1F /* 📦 Copy Pods Resources */ = {
+		95C58F8F614C4095041D9D1F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +377,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ua.aab.VRBoilerplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VRBoilerplate/VRBoilerplate-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -391,6 +393,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ua.aab.VRBoilerplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VRBoilerplate/VRBoilerplate-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

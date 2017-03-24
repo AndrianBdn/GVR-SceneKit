@@ -18,7 +18,7 @@ extension GVRHeadTransform {
     
     // good for VR cursors and sprites
     
-    func rotateMatrixForPosition(position : SCNVector3) -> SCNMatrix4 {
+    func rotateMatrixForPosition(_ position : SCNVector3) -> SCNMatrix4 {
         let rotationMatrix = GLKMatrix4Transpose(self.headPoseInStartSpace());
         let translationMatrix = GLKMatrix4MakeTranslation(position.x, position.y, position.z);
         
@@ -29,7 +29,7 @@ extension GVRHeadTransform {
     // the same as above, bot just rotates the position 
     // works good for sphers
     
-    func rotateVector(position : SCNVector3) -> SCNVector3 {
+    func rotateVector(_ position : SCNVector3) -> SCNVector3 {
         let rotationMatrix = GLKMatrix4Transpose(self.headPoseInStartSpace());
         return SCNVector3FromGLKVector3(GLKMatrix4MultiplyVector3(rotationMatrix, SCNVector3ToGLKVector3(position)));
     }
