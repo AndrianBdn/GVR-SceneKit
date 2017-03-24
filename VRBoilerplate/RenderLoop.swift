@@ -15,40 +15,40 @@ class RenderLoop: NSObject {
     
     var paused = false {
         didSet {
-            displayLink.paused = paused;
+            displayLink.isPaused = paused;
         }
     }
     
 
     init(renderTarget:AnyObject,  selector: Selector) {
         displayLink = CADisplayLink.init(target: renderTarget, selector: selector);
-        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+        displayLink.add(to: RunLoop.current, forMode: RunLoopMode.commonModes)
 
         super.init();
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(applicationWillResignActive),
-                                                         name: UIApplicationWillResignActiveNotification,
+                                                         name: NSNotification.Name.UIApplicationWillResignActive,
                                                          object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(applicationDidBecomeActive),
-                                                         name: UIApplicationDidBecomeActiveNotification,
+                                                         name: NSNotification.Name.UIApplicationDidBecomeActive,
                                                          object: nil)
         
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func applicationWillResignActive(notification : NSNotification) {
-        displayLink.paused = true;
+    func applicationWillResignActive(_ notification : Notification) {
+        displayLink.isPaused = true;
     }
     
 
-    func applicationDidBecomeActive(notification : NSNotification) {
-        displayLink.paused = paused;
+    func applicationDidBecomeActive(_ notification : Notification) {
+        displayLink.isPaused = paused;
     }
     
     func invalidate() {

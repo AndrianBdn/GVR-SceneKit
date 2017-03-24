@@ -14,13 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let navController = UINavigationController.init(rootViewController: ViewController.init() )
         navController.delegate = self;
-        navController.navigationBarHidden = true;
+        navController.isNavigationBarHidden = true;
         
-        let window = UIWindow.init(frame: UIScreen.mainScreen().bounds);
+        let window = UIWindow.init(frame: UIScreen.main.bounds);
         window.rootViewController = navController;
         window.makeKeyAndVisible();
         self.window = window;
@@ -31,9 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
     // Make the navigation controller defer the check of supported orientation to its topmost view
     // controller. This allows |GVRCardboardViewController| to lock the orientation in VR mode.
     
-    func navigationControllerSupportedInterfaceOrientations(navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
         
-        return navigationController.topViewController!.supportedInterfaceOrientations()
+        return navigationController.topViewController!.supportedInterfaceOrientations
         
     }
 

@@ -20,9 +20,8 @@ class ViewController: UIViewController, GVRCardboardViewDelegate {
     
     override func loadView() {
         
-        let vrControllerClassName = NSBundle
-            .mainBundle()
-            .objectForInfoDictionaryKey(VRControllerClassKey) as! String;
+        let vrControllerClassName = Bundle.main
+            .object(forInfoDictionaryKey: VRControllerClassKey) as! String;
         
         guard let vrClass = NSClassFromString(vrControllerClassName) as? VRControllerProtocol.Type else {
             fatalError("#fail Unable to find class \(vrControllerClassName), referenced in Info.plist, key=\(VRControllerClassKey)")
@@ -30,22 +29,22 @@ class ViewController: UIViewController, GVRCardboardViewDelegate {
         
         vrController = vrClass.init();
         
-        let cardboardView = GVRCardboardView.init(frame: CGRectZero)
-        cardboardView.delegate = self;
-        cardboardView.autoresizingMask =  [.FlexibleWidth, .FlexibleHeight];
+        let cardboardView = GVRCardboardView.init(frame: CGRect.zero)
+        cardboardView?.delegate = self;
+        cardboardView?.autoresizingMask =  [.flexibleWidth, .flexibleHeight];
         
         // VR mode is disabled in simulator by default 
         // double click to enable 
         
         #if (arch(i386) || arch(x86_64)) && os(iOS)
-            cardboardView.vrModeEnabled = false;
+            cardboardView?.vrModeEnabled = false;
         #else
             cardboardView.vrModeEnabled = true;
         #endif
         
         let doubleTap = UITapGestureRecognizer.init(target: self, action: #selector(toggleVR));
         doubleTap.numberOfTapsRequired = 2;
-        cardboardView.addGestureRecognizer(doubleTap);
+        cardboardView?.addGestureRecognizer(doubleTap);
         
         self.view = cardboardView;
     }
@@ -59,7 +58,7 @@ class ViewController: UIViewController, GVRCardboardViewDelegate {
         cardboardView.vrModeEnabled = !cardboardView.vrModeEnabled;
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         
         guard let cardboardView = self.view as? GVRCardboardView else {
@@ -71,7 +70,7 @@ class ViewController: UIViewController, GVRCardboardViewDelegate {
         
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated);
         
         renderLoop?.invalidate();
@@ -79,28 +78,28 @@ class ViewController: UIViewController, GVRCardboardViewDelegate {
     }
     
     
-    func cardboardView(cardboardView: GVRCardboardView!, willStartDrawing headTransform: GVRHeadTransform!) {
+    func cardboardView(_ cardboardView: GVRCardboardView!, willStartDrawing headTransform: GVRHeadTransform!) {
         renderer = SceneKitVRRenderer(scene:vrController!.scene)
         
         renderer?.cardboardView(cardboardView, willStartDrawing: headTransform)
     }
     
-    func cardboardView(cardboardView: GVRCardboardView!, prepareDrawFrame headTransform: GVRHeadTransform!) {
-        vrController!.prepareFrameWithHeadTransform(headTransform);
+    func cardboardView(_ cardboardView: GVRCardboardView!, prepareDrawFrame headTransform: GVRHeadTransform!) {
+        vrController!.prepareFrame(with: headTransform);
         renderer?.cardboardView(cardboardView, prepareDrawFrame: headTransform)
     }
     
-    func cardboardView(cardboardView: GVRCardboardView!, drawEye eye: GVREye, withHeadTransform headTransform: GVRHeadTransform!) {
-        renderer?.cardboardView(cardboardView, drawEye: eye, withHeadTransform: headTransform);
+    func cardboardView(_ cardboardView: GVRCardboardView!, draw eye: GVREye, with headTransform: GVRHeadTransform!) {
+        renderer?.cardboardView(cardboardView, draw: eye, with: headTransform);
     }
     
-    func cardboardView(cardboardView: GVRCardboardView!, shouldPauseDrawing pause: Bool) {
+    func cardboardView(_ cardboardView: GVRCardboardView!, shouldPauseDrawing pause: Bool) {
         renderLoop?.paused = pause;
     }
     
-    func cardboardView(cardboardView: GVRCardboardView!, didFireEvent event: GVRUserEvent) {
+    func cardboardView(_ cardboardView: GVRCardboardView!, didFire event: GVRUserEvent) {
 
-        if event == GVRUserEvent.Trigger {
+        if event == GVRUserEvent.trigger {
             vrController!.eventTriggered();
         }
     }

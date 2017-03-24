@@ -21,7 +21,7 @@ class SceneKitVRRenderer: NSObject, GVRCardboardViewDelegate {
 
     
     func createRenderer() -> SCNRenderer {
-        let renderer = SCNRenderer.init(context: EAGLContext.currentContext(), options: nil);
+        let renderer = SCNRenderer.init(context: EAGLContext.current(), options: nil);
         let camNode = SCNNode();
         camNode.camera = SCNCamera();
         renderer.pointOfView = camNode;        
@@ -32,14 +32,14 @@ class SceneKitVRRenderer: NSObject, GVRCardboardViewDelegate {
     }
     
     
-    func cardboardView(cardboardView: GVRCardboardView!, willStartDrawing headTransform: GVRHeadTransform!) {
+    func cardboardView(_ cardboardView: GVRCardboardView!, willStartDrawing headTransform: GVRHeadTransform!) {
         renderer.append(createRenderer())
         renderer.append(createRenderer())
         renderer.append(createRenderer())
     }
     
     
-    func cardboardView(cardboardView: GVRCardboardView!, prepareDrawFrame headTransform: GVRHeadTransform!) {
+    func cardboardView(_ cardboardView: GVRCardboardView!, prepareDrawFrame headTransform: GVRHeadTransform!) {
         glEnable(GLenum(GL_DEPTH_TEST));
         
         // can't get SCNRenderer to do this, has to do myself
@@ -59,25 +59,25 @@ class SceneKitVRRenderer: NSObject, GVRCardboardViewDelegate {
         glEnable(GLenum(GL_SCISSOR_TEST));
     }
     
-    func cardboardView(cardboardView: GVRCardboardView!, drawEye eye: GVREye, withHeadTransform headTransform: GVRHeadTransform!) {
+    func cardboardView(_ cardboardView: GVRCardboardView!, draw eye: GVREye, with headTransform: GVRHeadTransform!) {
         
-        let viewport = headTransform.viewportForEye(eye);
+        let viewport = headTransform.viewport(for: eye);
         glViewport(GLint(viewport.origin.x), GLint(viewport.origin.y), GLint(viewport.size.width), GLint(viewport.size.height));
         glScissor(GLint(viewport.origin.x), GLint(viewport.origin.y), GLint(viewport.size.width), GLint(viewport.size.height));
         
         
-        let projection_matrix = headTransform.projectionMatrixForEye(eye, near: 0.1, far: 1000.0);
-        let model_view_matrix = GLKMatrix4Multiply(headTransform.eyeFromHeadMatrix(eye), headTransform.headPoseInStartSpace())
+        let projection_matrix = headTransform.projectionMatrix(for: eye, near: 0.1, far: 1000.0);
+        let model_view_matrix = GLKMatrix4Multiply(headTransform.eye(fromHeadMatrix: eye), headTransform.headPoseInStartSpace())
 
         guard let eyeRenderer = renderer[eye.rawValue] else {
             fatalError("no eye renderer for eye")
         }
         
-        eyeRenderer.pointOfView?.camera?.setProjectionTransform(SCNMatrix4FromGLKMatrix4(projection_matrix));
+        eyeRenderer.pointOfView?.camera?.projectionTransform = SCNMatrix4FromGLKMatrix4(projection_matrix);
         eyeRenderer.pointOfView?.transform = SCNMatrix4FromGLKMatrix4(GLKMatrix4Transpose(model_view_matrix));
         
         if glGetError() == GLenum(GL_NO_ERROR) {
-            eyeRenderer.renderAtTime(0);
+            eyeRenderer.render(atTime: 0);
         }
         
     }
