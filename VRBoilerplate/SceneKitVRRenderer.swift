@@ -14,6 +14,7 @@ class SceneKitVRRenderer: NSObject, GVRCardboardViewDelegate {
     
     let scene: SCNScene;
     var renderer : [SCNRenderer?] = [];
+    var renderTime = 0.0 // seconds
     
     init(scene: SCNScene) {
         self.scene = scene;
@@ -57,6 +58,8 @@ class SceneKitVRRenderer: NSObject, GVRCardboardViewDelegate {
         
         glClear(GLbitfield(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
         glEnable(GLenum(GL_SCISSOR_TEST));
+        
+        renderTime = CACurrentMediaTime()
     }
     
     func cardboardView(_ cardboardView: GVRCardboardView!, draw eye: GVREye, with headTransform: GVRHeadTransform!) {
@@ -77,7 +80,7 @@ class SceneKitVRRenderer: NSObject, GVRCardboardViewDelegate {
         eyeRenderer.pointOfView?.transform = SCNMatrix4FromGLKMatrix4(GLKMatrix4Transpose(model_view_matrix));
         
         if glGetError() == GLenum(GL_NO_ERROR) {
-            eyeRenderer.render(atTime: 0);
+            eyeRenderer.render(atTime: renderTime)
         }
         
     }
