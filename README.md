@@ -5,7 +5,7 @@
 
 This is an example of using Apple SceneKit with [iOS Google Virtual Reality SDK](https://github.com/googlevr/gvr-ios-sdk) for using with [Google Cardboard](https://vr.google.com/cardboard/).
 
-Currently (early June 2016) it is the easiest way to develop VR app on iPhone. Hope this is going to change after WWDC 2016.
+Currently (early <strike>June 2016</strike> April 2017) it is the easiest way to develop VR app on the iPhone. Hope this is going to change after WWDC <strike>2016</strike> 2017.
 
 The project codename is ’VRBoilerplate’ and initially it was prepared for iOS programming competition for [uadevchallenge 2016](http://uawebchallenge.com/). It supports  both Objective-C and Swift.
 
@@ -62,5 +62,5 @@ This method is called when magnet on Cardboard is ‘clicked’ (or if there the
 	
 	- There are two warning during build: … direct access in gvr::Singleton gvr::ServerLogger ::GetInstance() to global weak symbol — see [issue](https://github.com/googlevr/gvr-ios-sdk/issues/22) in GVR project. 
 
-- Scene time is always 0, however SceneKit is not using scene time by default.  It is possible to change this in SceneKitVRRenderer.
+
 
