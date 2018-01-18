@@ -50,7 +50,7 @@ class ViewController: UIViewController, GVRCardboardViewDelegate {
     }
 
     
-    func toggleVR() {
+    @objc func toggleVR() {
         guard let cardboardView = self.view as? GVRCardboardView else {
             fatalError("view is not GVRCardboardView")
         }

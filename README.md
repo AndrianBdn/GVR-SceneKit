@@ -49,6 +49,12 @@ You can use prepareFrameWithHeadTransform: as a game loop body.
 This method is called when magnet on Cardboard is ‘clicked’ (or if there there are tap on Simulator window) 
 
 
+## Examples
+
+There is VRControllerSwift and VRControllerObjC example VR controllers. Which one is going to be used is specified in Info.plist. By default we use VRControllerSwift. 
+
+They contain different implementations. If you want to do some cool stuff, I suggest you to read both.
+
 
 ## Implementation Details 
 

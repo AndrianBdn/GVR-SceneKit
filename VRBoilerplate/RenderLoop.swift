@@ -42,12 +42,12 @@ class RenderLoop: NSObject {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func applicationWillResignActive(_ notification : Notification) {
+    @objc func applicationWillResignActive(_ notification : Notification) {
         displayLink.isPaused = true;
     }
     
 
-    func applicationDidBecomeActive(_ notification : Notification) {
+    @objc func applicationDidBecomeActive(_ notification : Notification) {
         displayLink.isPaused = paused;
     }
     

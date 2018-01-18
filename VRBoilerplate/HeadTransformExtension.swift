@@ -18,7 +18,7 @@ extension GVRHeadTransform {
     
     // good for VR cursors and sprites
     
-    func rotateMatrixForPosition(_ position : SCNVector3) -> SCNMatrix4 {
+    @objc func rotateMatrixForPosition(_ position : SCNVector3) -> SCNMatrix4 {
         let rotationMatrix = GLKMatrix4Transpose(self.headPoseInStartSpace());
         let translationMatrix = GLKMatrix4MakeTranslation(position.x, position.y, position.z);
         
