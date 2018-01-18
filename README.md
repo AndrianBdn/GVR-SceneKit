@@ -5,9 +5,9 @@
 
 This is an example of using Apple SceneKit with [iOS Google Virtual Reality SDK](https://github.com/googlevr/gvr-ios-sdk) for using with [Google Cardboard](https://vr.google.com/cardboard/).
 
-Currently (early <strike>June 2016</strike> April 2017) it is the easiest way to develop VR app on the iPhone. Hope this is going to change after WWDC <strike>2016</strike> 2017.
+Currently ( January 2018 <strike>April 2017</strike> <strike>June 2016</strike> ) it is the easiest way to develop VR app on the iPhone. Hope this is going to change after WWDC <strike>2016</strike> <strike>2017</strike> 2018.
 
-The project codename is ’VRBoilerplate’ and initially it was prepared for iOS programming competition for [uadevchallenge 2016](http://uawebchallenge.com/). It supports  both Objective-C and Swift.
+The project codename is ’VRBoilerplate’ and initially it was prepared for iOS programming competition UADevChallenge 2016. It supports  both Objective-C and Swift.
 
 
 ## Installing 
