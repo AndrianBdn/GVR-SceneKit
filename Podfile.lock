@@ -1,11 +1,19 @@
 PODS:
-  - GVRSDK (0.8.0)
+  - GoogleToolboxForMac/Defines (2.1.0)
+  - GoogleToolboxForMac/Logger (2.1.0):
+    - GoogleToolboxForMac/Defines (= 2.1.0)
+  - GTMSessionFetcher/Core (1.1.6)
+  - GVRSDK (1.120.0):
+    - GoogleToolboxForMac/Logger (= 2.1.0)
+    - GTMSessionFetcher/Core (= 1.1.6)
 
 DEPENDENCIES:
   - GVRSDK
 
 SPEC CHECKSUMS:
-  GVRSDK: c2cda79e2d9adc1332f389e26285c8315ec82dc5
+  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
+  GTMSessionFetcher: 6aacd0ab48ddf0c3633ab2642d792abfcad1b08a
+  GVRSDK: 0cb9d0ce06a84d698e61e3db9509766022dcf815
 
 PODFILE CHECKSUM: e8159056077278095141eb0fdd4b579b9a2cd66a
 

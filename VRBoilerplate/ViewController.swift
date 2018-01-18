@@ -39,7 +39,7 @@ class ViewController: UIViewController, GVRCardboardViewDelegate {
         #if (arch(i386) || arch(x86_64)) && os(iOS)
             cardboardView?.vrModeEnabled = false;
         #else
-            cardboardView.vrModeEnabled = true;
+            cardboardView?.vrModeEnabled = true;
         #endif
         
         let doubleTap = UITapGestureRecognizer.init(target: self, action: #selector(toggleVR));

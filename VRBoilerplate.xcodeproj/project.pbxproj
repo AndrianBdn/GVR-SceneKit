@@ -170,6 +170,7 @@
 				TargetAttributes = {
 					E6D67C6E1CEDA76A00D9F9E9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = FA8DPD7WRW;
 						LastSwiftMigration = 0920;
 					};
 				};
@@ -397,6 +398,7 @@
 			baseConfigurationReference = 760A4B47E60361A6E05DBC73 /* Pods-VRBoilerplate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FA8DPD7WRW;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = VRBoilerplate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -414,6 +416,7 @@
 			baseConfigurationReference = 016D3AC424AF5CD038D5B001 /* Pods-VRBoilerplate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FA8DPD7WRW;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = VRBoilerplate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
